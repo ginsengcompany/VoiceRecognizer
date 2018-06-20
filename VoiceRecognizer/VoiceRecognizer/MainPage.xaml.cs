@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Plugin.CrossSpeechToText.Stt;
+using VoiceRecognizer.Dependency;
 using Xamarin.Forms;
 
 namespace VoiceRecognizer
@@ -17,7 +18,7 @@ namespace VoiceRecognizer
 
 	    private async void IniziaRiconoscimento(object sender, EventArgs e)
 	    {
-	      //  DependencyService.Get<ITextToSpeech>().Speak("INIZIO RICONOSCIMENTO VOCALE");
+	       DependencyService.Get<ITextToSpeech>().Speak("INIZIO RICONOSCIMENTO VOCALE");
 
 	        var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
 	        txtResult.Text = result;
