@@ -81,7 +81,7 @@ namespace VoiceRecognizer
 
             Device.StartTimer(TimeSpan.FromSeconds(3), () =>
             {
-                InserimentoPressione();
+                InserimentoBattiti();
                 return false;
             });
 
@@ -101,9 +101,6 @@ namespace VoiceRecognizer
 
         }
 
-        private async void IniziaRiconoscimento(object sender, EventArgs e)
-	    {
-	        
-	    }
+ 
     }
 }
