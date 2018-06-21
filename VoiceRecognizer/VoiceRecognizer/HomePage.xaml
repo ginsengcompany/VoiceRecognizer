@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VoiceRecognizer.HomePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Aqua">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="BENVENUTO, inserisci il nome con cui vuoi esser riconosciuto"></Label>
+                    <Entry x:Name="EntryUsername" Placeholder="Inserisci nome" VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+                    <Button Text="Inizio riconoscimento vocale" Clicked="AvvioSecondaPagina"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,14 +5,22 @@
              x:Class="VoiceRecognizer.MainPage">
 
     <StackLayout>
-        <Label x:Name="txtResult"></Label>
-        <Label Text="Temperatura:" FontSize="Medium" TextColor="Black"></Label>
-        <Label x:Name="lblTemperatura"></Label>
-        <Label Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black"></Label>
-        <Label x:Name="lblPressione"></Label>
-        <Label Text="Battiti:" FontSize="Medium" TextColor="Black"></Label>
-        <Label x:Name="lblBattito"></Label>
-        
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+            <Label x:Name="txtResult" FontSize="Large" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="Temperatura:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+            <Label x:Name="lblTemperatura" FontSize="Large" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+            <Label x:Name="lblPressione" FontSize="Large" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Battiti:" FontSize="Medium" VerticalOptions="Center" TextColor="Black"></Label>
+            <Label x:Name="lblBattito" FontSize="Large" VerticalOptions="Center"></Label>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

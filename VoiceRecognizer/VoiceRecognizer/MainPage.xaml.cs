@@ -11,15 +11,17 @@ namespace VoiceRecognizer
 {
 	public partial class MainPage : ContentPage
 	{
-		public MainPage()
+	    private string username;
+		public MainPage(string username)
 		{
 			InitializeComponent();
+		    this.username = username;
             IngressoPagina();
         }
 
 	    public async void IngressoPagina()
 	    {
-	        await letturainiziale("CIAO MAURIZIO! Sono il tuo assistente vocale, inserisci la tua temperatura corporia dopo il segnale acustico");
+	        await letturainiziale("CIAO" + username + " Sono il tuo assistente vocale, inserisci la tua temperatura corporia dopo il segnale acustico");
             Device.StartTimer(TimeSpan.FromSeconds(7), () =>
             {
                 InizioRiconoscimentoVocaleFebbre();
@@ -30,7 +32,7 @@ namespace VoiceRecognizer
 
 	    public async void InserimentoPressione()
 	    {
-	        await letturainiziale("Bene! Ora potresti darmi i dati della tua pressione sanguigna MAURIZIO? dopo il segnale acustico");
+	        await letturainiziale("Bene! Ora potresti darmi i dati della tua pressione sanguigna " + username + " dopo il segnale acustico");
 	        Device.StartTimer(TimeSpan.FromSeconds(10), () =>
 	        {
 	            InizioRiconoscimentoVocalePressione();
@@ -39,7 +41,7 @@ namespace VoiceRecognizer
         }
         public async void InserimentoBattiti()
         {
-            await letturainiziale("Bene! mi mancano solo i dati relativi ai tuoi battiti MAURIZIO, potresti darmeli dopo il segnale acustico");
+            await letturainiziale("Bene! mi mancano solo i dati relativi ai tuoi battiti " + username + " potresti darmeli dopo il segnale acustico");
             Device.StartTimer(TimeSpan.FromSeconds(10), () =>
             {
                 InizioRiconoscimentoVocaleBattiti();
