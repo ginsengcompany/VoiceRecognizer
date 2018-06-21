@@ -19,7 +19,7 @@ namespace VoiceRecognizer
 
 	    public async void IngressoPagina()
 	    {
-	        await letturainiziale("Inserisci il valore della temperatura corporea del paziente in gradi celsius dopo il segnale acustico");
+	        await letturainiziale("CIAO MAURIZIO! Sono il tuo assistente AKappa, inserisci la tua temperatura corporia dopo il segnale acustico");
             Device.StartTimer(TimeSpan.FromSeconds(7), () =>
 
             {
@@ -31,11 +31,11 @@ namespace VoiceRecognizer
 
 	    public async void InserimentoPressione()
 	    {
-	        await letturainiziale("Inserisci il valore della pressione sanguigna del paziente dopo il segnale acustico");
-	        Device.StartTimer(TimeSpan.FromSeconds(7), () =>
+	        await letturainiziale("Bene! Ora potresti darmi i dati della tua pressione sanguigna MAURIZIO? dopo il segnale acustico");
+	        Device.StartTimer(TimeSpan.FromSeconds(10), () =>
 
 	        {
-	            InizioRiconoscimentoVocaleFebbre();
+	            InizioRiconoscimentoVocalePressione();
 	            return false;
 	        });
         }
@@ -56,12 +56,24 @@ namespace VoiceRecognizer
 	        var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
 	        txtResult.Text = result;
 	        await lettura("hai inserito" + txtResult.Text);
-	        Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+	        Device.StartTimer(TimeSpan.FromSeconds(4), () =>
 
 	        {
 	            InserimentoPressione();
                 return false;
 	        });
+
+        }
+        public async void InizioRiconoscimentoVocalePressione()
+        {
+            var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
+            txtResult.Text = result;
+            await lettura("hai inserito" + txtResult.Text);
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+
+            {
+                return false;
+            });
 
         }
 
