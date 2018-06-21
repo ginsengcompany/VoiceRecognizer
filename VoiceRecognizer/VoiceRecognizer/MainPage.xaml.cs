@@ -19,7 +19,7 @@ namespace VoiceRecognizer
 
 	    public async void IngressoPagina()
 	    {
-	        await letturainiziale("CIAO MAURIZIO! Sono il tuo assistente AKappa, inserisci la tua temperatura corporia dopo il segnale acustico");
+	        await letturainiziale("CIAO MAURIZIO! Sono il tuo assistente vocale, inserisci la tua temperatura corporia dopo il segnale acustico");
             Device.StartTimer(TimeSpan.FromSeconds(7), () =>
 
             {
@@ -56,6 +56,7 @@ namespace VoiceRecognizer
 	        var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
 	        txtResult.Text = result;
 	        await lettura("hai inserito" + txtResult.Text);
+	        lblTemperatura.Text = txtResult.Text;
 	        Device.StartTimer(TimeSpan.FromSeconds(4), () =>
 
 	        {
@@ -69,6 +70,8 @@ namespace VoiceRecognizer
             var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
             txtResult.Text = result;
             await lettura("hai inserito" + txtResult.Text);
+            lblPressione.Text = txtResult.Text;
+
             Device.StartTimer(TimeSpan.FromSeconds(3), () =>
 
             {

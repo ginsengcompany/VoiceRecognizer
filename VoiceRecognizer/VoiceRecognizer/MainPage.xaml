@@ -6,8 +6,12 @@
 
     <StackLayout>
         <Label x:Name="txtResult"></Label>
-        <Button Text="inizia riconoscimento" Clicked="IniziaRiconoscimento"></Button>
-        
+        <Label Text="Temperatura:" FontSize="Medium" TextColor="Black"></Label>
+        <Label x:Name="lblTemperatura"></Label>
+        <Label Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black"></Label>
+        <Label x:Name="lblPressione"></Label>
+        <Label Text="Battiti:" FontSize="Medium" TextColor="Black"></Label>
+        <Label x:Name="lblBattito"></Label>
         
     </StackLayout>
 
