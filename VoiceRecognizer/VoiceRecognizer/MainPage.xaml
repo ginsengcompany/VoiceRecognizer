@@ -5,22 +5,56 @@
              x:Class="VoiceRecognizer.MainPage">
 
     <StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-            <Label x:Name="txtResult" FontSize="Large" VerticalOptions="Center"></Label>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+       
+        <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+            
+                    <Label Grid.Column="0" Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="1" x:Name="txtResult" FontSize="Large" VerticalOptions="Center"></Label>
+            </Grid>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" >
-            <Label Text="Temperatura:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-            <Label x:Name="lblTemperatura" FontSize="Large" VerticalOptions="Center"></Label>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Temperatura:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="1" x:Name="lblTemperatura" FontSize="Large" VerticalOptions="Center"></Label>
+                    </Grid>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-            <Label x:Name="lblPressione" FontSize="Large" VerticalOptions="Center"></Label>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="1" x:Name="lblPressione" FontSize="Large" VerticalOptions="Center"></Label>
+                    </Grid>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Battiti:" FontSize="Medium" VerticalOptions="Center" TextColor="Black"></Label>
-            <Label x:Name="lblBattito" FontSize="Large" VerticalOptions="Center"></Label>
+            <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Battiti:" FontSize="Medium" VerticalOptions="Center" TextColor="Black"></Label>
+                    <Label Grid.Column="1" x:Name="lblBattito" FontSize="Large" VerticalOptions="Center"></Label>
+                    </Grid>
         </StackLayout>
+        </Grid>
     </StackLayout>
 
 </ContentPage>
