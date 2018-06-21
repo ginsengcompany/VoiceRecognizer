@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VoiceRecognizer.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame BackgroundColor="Aqua">
+        <StackLayout Padding="20">
+            <Frame BackgroundColor="LightGreen" CornerRadius="15">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="BENVENUTO, inserisci il nome con cui vuoi esser riconosciuto"></Label>
                     <Entry x:Name="EntryUsername" Placeholder="Inserisci nome" VerticalOptions="Center" HorizontalOptions="Center"></Entry>
