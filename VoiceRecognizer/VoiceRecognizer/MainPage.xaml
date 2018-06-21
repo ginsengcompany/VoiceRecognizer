@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:VoiceRecognizer"
-             x:Class="VoiceRecognizer.MainPage">
+             x:Class="VoiceRecognizer.MainPage"
+             Title="PAGINA DATI">
 
     <StackLayout>
-        <Grid>
+        <Label x:Name="lbltitolo" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"/>
+        
+        <Grid BackgroundColor="Black" Padding="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -13,18 +16,17 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
        
-        <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="Center">
+        <StackLayout Orientation="Horizontal" Grid.Row="0" BackgroundColor="LightGray">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-            
-                    <Label Grid.Column="0" Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Label  Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
                     <Label Grid.Column="1" x:Name="txtResult" FontSize="Large" VerticalOptions="Center"></Label>
             </Grid>
         </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" Grid.Row="1"  BackgroundColor="White">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -34,7 +36,7 @@
                     <Label Grid.Column="1" x:Name="lblTemperatura" FontSize="Large" VerticalOptions="Center"></Label>
                     </Grid>
         </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="LightGray">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -44,7 +46,7 @@
                     <Label Grid.Column="1" x:Name="lblPressione" FontSize="Large" VerticalOptions="Center"></Label>
                     </Grid>
         </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" Grid.Row="3"  BackgroundColor="White">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>

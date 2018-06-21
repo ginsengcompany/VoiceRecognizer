@@ -20,6 +20,8 @@ namespace VoiceRecognizer
 		{
 			InitializeComponent();
 		    this.username = username;
+            lbltitolo.Text = " DATI DI " + username + " ";
+            lbltitolo.Text = lbltitolo.Text.ToUpperInvariant();
             temperatura = "CIAO" + username + " Sono il tuo assistente vocale, inserisci la tua temperatura corporea dopo il segnale acustico";
             pressione = "Bene! Ora potresti darmi i dati della tua pressione sanguigna " + username + " dopo il segnale acustico";
             battiti = "Bene! mi mancano solo i dati relativi ai tuoi battiti " + username + " potresti darmeli dopo il segnale acustico";
