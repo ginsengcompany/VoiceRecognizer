@@ -15,7 +15,6 @@ namespace VoiceRecognizer
         private string temperatura;
         private string pressione;
         private string battiti;
-        private bool flag = false;
         
 		public MainPage(string username)
 		{
@@ -24,38 +23,29 @@ namespace VoiceRecognizer
             temperatura = "CIAO" + username + " Sono il tuo assistente vocale, inserisci la tua temperatura corporea dopo il segnale acustico";
             pressione = "Bene! Ora potresti darmi i dati della tua pressione sanguigna " + username + " dopo il segnale acustico";
             battiti = "Bene! mi mancano solo i dati relativi ai tuoi battiti " + username + " potresti darmeli dopo il segnale acustico";
-            IngressoPagina();
+            IngressoPagina(lblTemperatura, temperatura);
         }
 
-	    public async void IngressoPagina()
+	    public async void IngressoPagina(Label label,String stringa)
 	    {
+            string temp;
 
-	        await lettura(temperatura);
+            await lettura(stringa);
+            if (temperatura == stringa)
+                temp = "temperatura";
+            else if (pressione == stringa)
+                temp = "pressione";
+            else
+                temp = "battiti";
             Device.StartTimer(TimeSpan.FromSeconds(7), () =>
             {
-                while(!flag)
-                    InizioRiconoscimentoVocale(lblTemperatura);
+                InizioRiconoscimentoVocale(label, temp);
                 return false;
 	        });
-            flag = false;
-            await lettura(pressione);
-            Device.StartTimer(TimeSpan.FromSeconds(7), () =>
-            {
-                while (!flag)
-                    InizioRiconoscimentoVocale(lblPressione);
-                return false;
-            });
-            flag = false;
-            await lettura(battiti);
-            Device.StartTimer(TimeSpan.FromSeconds(7), () =>
-            {
-                while (!flag)
-                    InizioRiconoscimentoVocale(lblBattito);
-                return false;
-            });
+            
         }
 
-        public async void InizioRiconoscimentoVocale(Label label)
+        public async void InizioRiconoscimentoVocale(Label label,string stringa)
         {
             var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
             txtResult.Text = result;
@@ -64,7 +54,11 @@ namespace VoiceRecognizer
 
             Device.StartTimer(TimeSpan.FromSeconds(3), () =>
             {
-                flag = true;
+                if (stringa == "temperatura")
+                    IngressoPagina(lblPressione, pressione);
+                else if(stringa=="pressione")
+                    IngressoPagina(lblBattito, battiti);
+
                 return false;
             });
         }
