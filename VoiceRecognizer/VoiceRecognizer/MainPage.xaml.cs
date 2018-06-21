@@ -11,40 +11,60 @@ namespace VoiceRecognizer
 {
 	public partial class MainPage : ContentPage
 	{
-	    private string username;
+        private string username;
+        private string temperatura;
+        private string pressione;
+        private string battiti;
+        private bool flag = false;
+        
 		public MainPage(string username)
 		{
 			InitializeComponent();
 		    this.username = username;
+            temperatura = "CIAO" + username + " Sono il tuo assistente vocale, inserisci la tua temperatura corporea dopo il segnale acustico";
+            pressione = "Bene! Ora potresti darmi i dati della tua pressione sanguigna " + username + " dopo il segnale acustico";
+            battiti = "Bene! mi mancano solo i dati relativi ai tuoi battiti " + username + " potresti darmeli dopo il segnale acustico";
             IngressoPagina();
         }
 
 	    public async void IngressoPagina()
 	    {
-	        await letturainiziale("CIAO" + username + " Sono il tuo assistente vocale, inserisci la tua temperatura corporia dopo il segnale acustico");
+
+	        await lettura(temperatura);
             Device.StartTimer(TimeSpan.FromSeconds(7), () =>
             {
-                InizioRiconoscimentoVocaleFebbre();
+                while(!flag)
+                    InizioRiconoscimentoVocale(lblTemperatura);
                 return false;
 	        });
-          
+            flag = false;
+            await lettura(pressione);
+            Device.StartTimer(TimeSpan.FromSeconds(7), () =>
+            {
+                while (!flag)
+                    InizioRiconoscimentoVocale(lblPressione);
+                return false;
+            });
+            flag = false;
+            await lettura(battiti);
+            Device.StartTimer(TimeSpan.FromSeconds(7), () =>
+            {
+                while (!flag)
+                    InizioRiconoscimentoVocale(lblBattito);
+                return false;
+            });
         }
 
-	    public async void InserimentoPressione()
-	    {
-	        await letturainiziale("Bene! Ora potresti darmi i dati della tua pressione sanguigna " + username + " dopo il segnale acustico");
-	        Device.StartTimer(TimeSpan.FromSeconds(10), () =>
-	        {
-	            InizioRiconoscimentoVocalePressione();
-	            return false;
-	        });
-        }
-        public async void InserimentoBattiti()
+        public async void InizioRiconoscimentoVocale(Label label)
         {
-            await letturainiziale("Bene! mi mancano solo i dati relativi ai tuoi battiti " + username + " potresti darmeli dopo il segnale acustico");
-            Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+            var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
+            txtResult.Text = result;
+            await lettura("hai inserito" + txtResult.Text);
+            label.Text = txtResult.Text;
+
+            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
             {
-                InizioRiconoscimentoVocaleBattiti();
+                flag = true;
                 return false;
             });
         }
@@ -54,55 +74,5 @@ namespace VoiceRecognizer
 	        DependencyService.Get<ITextToSpeech>().Speak(valore);
 
         }
-	    public async Task letturainiziale(string valorePronuncia)
-	    {
-	        DependencyService.Get<ITextToSpeech>().Speak(valorePronuncia);
-
-	    }
-
-        public async void InizioRiconoscimentoVocaleFebbre()
-	    {
-	        var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
-	        txtResult.Text = result;
-	        await lettura("hai inserito" + txtResult.Text);
-	        lblTemperatura.Text = txtResult.Text;
-	        Device.StartTimer(TimeSpan.FromSeconds(4), () =>
-
-	        {
-	            InserimentoPressione();
-                return false;
-	        });
-
-        }
-        public async void InizioRiconoscimentoVocalePressione()
-        {
-            var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
-            txtResult.Text = result;
-            await lettura("hai inserito" + txtResult.Text);
-            lblPressione.Text = txtResult.Text;
-
-            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
-            {
-                InserimentoBattiti();
-                return false;
-            });
-
-        }
-        public async void InizioRiconoscimentoVocaleBattiti()
-        {
-            var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
-            txtResult.Text = result;
-            await lettura("hai inserito" + txtResult.Text);
-            lblBattito.Text = txtResult.Text;
-
-            Device.StartTimer(TimeSpan.FromSeconds(3), () =>
-            {
-
-                return false;
-            });
-
-        }
-
- 
     }
 }
