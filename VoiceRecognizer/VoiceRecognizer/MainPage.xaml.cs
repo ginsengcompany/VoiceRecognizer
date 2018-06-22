@@ -28,7 +28,7 @@ namespace VoiceRecognizer
             IngressoPagina(lblTemperatura, temperatura);
         }
 
-	    public async void IngressoPagina(Label label,String stringa)
+	    public async void IngressoPagina(Entry label,String stringa)
 	    {
             string temp;
 
@@ -47,7 +47,7 @@ namespace VoiceRecognizer
             
         }
 
-        public async void InizioRiconoscimentoVocale(Label label,string stringa)
+        public async void InizioRiconoscimentoVocale(Entry label,string stringa)
         {
             var result = await CrossSpeechToText.StartVoiceInput("Voice Input!");
             txtResult.Text = result;
