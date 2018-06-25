@@ -8,52 +8,52 @@
     <StackLayout>
         <Label x:Name="lbltitolo" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"/>
         
-        <Grid BackgroundColor="Black" Padding="1">
+        <Grid BackgroundColor="Black" Padding="0.5" VerticalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-        
-        <StackLayout Orientation="Horizontal" Grid.Row="0" BackgroundColor="LightGray">
-            <Grid>
+       
+        <StackLayout Orientation="Horizontal" Grid.Row="0" BackgroundColor="LightBlue">
+            <Grid HorizontalOptions="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label  Text="Valore inserito:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="1" x:Name="txtResult" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Entry Grid.Column="1" x:Name="txtResult" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"></Entry>
             </Grid>
         </StackLayout>
             <StackLayout Orientation="Horizontal" Grid.Row="1"  BackgroundColor="White">
-                <Grid>
+                <Grid HorizontalOptions="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Temperatura:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="1" x:Name="lblTemperatura" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Label>
+                    <Entry Grid.Column="1" x:Name="lblTemperatura" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Entry>
                     </Grid>
         </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="LightGray">
-                <Grid>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="LightBlue">
+                <Grid HorizontalOptions="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Pressione sanguigna:" FontSize="Medium" TextColor="Black" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="1" x:Name="lblPressione" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Label>
+                    <Entry Grid.Column="1" x:Name="lblPressione" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Entry>
                     </Grid>
         </StackLayout>
             <StackLayout Orientation="Horizontal" Grid.Row="3"  BackgroundColor="White">
-                <Grid>
+                <Grid HorizontalOptions="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Battiti:" FontSize="Medium" VerticalOptions="Center" TextColor="Black"></Label>
-                    <Label Grid.Column="1" x:Name="lblBattito" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Label>
+                    <Entry Grid.Column="1" x:Name="lblBattito" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"></Entry>
                     </Grid>
         </StackLayout>
         </Grid>
