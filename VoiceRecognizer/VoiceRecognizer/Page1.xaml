@@ -12,7 +12,7 @@
             <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop" Clicked="OnStop"></Button>
         </StackLayout>
         
-        <StackLayout x:Name="androidLayout" IsVisible="True">
+        <StackLayout x:Name="androidLayout" IsVisible="False">
             <local1:VoiceButton  x:Name="voiceButton" Text="Record Voice" IsVisible="true" />
             <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabelDroid" Text="Text Will Appear here" ></Label>
         </StackLayout>

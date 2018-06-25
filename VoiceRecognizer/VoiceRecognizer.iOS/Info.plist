@@ -20,8 +20,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MinimumOSVersion</key>
-	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>VoiceRecognizer</string>
 	<key>CFBundleIdentifier</key>
@@ -34,5 +32,11 @@
 	<string>VoiceRecognizer</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>New Entry</string>
+	<key>NSSiriUsageDescription</key>
+	<string>New Entry</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>New Entry</string>
 </dict>
 </plist>

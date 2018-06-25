@@ -18,18 +18,22 @@ namespace VoiceRecognizer
          public Page1()
          {
             InitializeComponent();
-#if __ANDROID__
-			androidLayout.IsVisible = true;
-			voiceButton.OnTextChanged += (s) => {
-				textLabelDroid.Text = s;
-			};
-#endif
-#if __IOS__
-			iOSLayout.IsVisible = true;
-			this.Content = iOSLayout;
-			speechRecognitionInstnace = DependencyService.Get<ISpeechToText> ();
-			speechRecognitionInstnace.textChanged += OnTextChange;
-#endif
+             if (Device.RuntimePlatform == Device.Android)
+             {
+                androidLayout.IsVisible = true;
+                 voiceButton.OnTextChanged += (s) => {
+                     textLabelDroid.Text = s;
+                 };
+            }
+             else
+             {
+                iOSLayout.IsVisible = true;
+                 this.Content = iOSLayout;
+                 speechRecognitionInstnace = DependencyService.Get<ISpeechToText>();
+                 speechRecognitionInstnace.textChanged += OnTextChange;
+             }
+			
+
 
         }
 
