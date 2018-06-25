@@ -11,7 +11,7 @@ namespace VoiceRecognizer
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new HomePage());
+			MainPage = new NavigationPage(new Page1());
 		}
 
 		protected override void OnStart ()

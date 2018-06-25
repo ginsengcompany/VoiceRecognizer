@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-       
+        
         <StackLayout Orientation="Horizontal" Grid.Row="0" BackgroundColor="LightGray">
             <Grid>
                     <Grid.ColumnDefinitions>

@@ -59,6 +59,8 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderes\ActivityResultEventArgs.cs" />
+    <Compile Include="CustomRenderes\VoiceButtonRenderer.cs" />
     <Compile Include="Dependency\TextToSpeechImplementation.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

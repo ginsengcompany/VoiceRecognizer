@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using VoiceRecognizer.Droid.CustomRenderers;
 
 namespace VoiceRecognizer.Droid
 {
@@ -14,6 +15,7 @@ namespace VoiceRecognizer.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         internal static MainActivity Instance { get; private set; }
+        public event EventHandler<ActivityResultEventArgs> ActivityResult = delegate { };
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -30,7 +32,14 @@ namespace VoiceRecognizer.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
             Plugin.CrossSpeechToText.Droid.SpeechToText.OnActivityResult(requestCode, resultCode, data);
+            ActivityResult(this, new ActivityResultEventArgs
+            {
+                RequestCode = requestCode,
+                ResultCode = resultCode,
+                Data = data
+            });
         }
+
     }
 }
 
